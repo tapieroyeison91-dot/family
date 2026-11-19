@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Arcade - Estilo Retro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Encabezado -->
+        <header class="game-header">
+            <h1>SNAKE <span>ARCADE</span></h1>
+        </header>
+
+        <!-- Área principal: Tablero + Panel lateral -->
+        <main class="game-board-area">
+            <!-- Canvas de la serpiente (400x400 px) -->
+            <div class="canvas-wrapper">
+                <canvas id="snake-canvas" width="400" height="400"></canvas>
+                
+                <!-- Pantalla de Game Over / Victoria -->
+                <div id="end-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <h2 id="modal-title" class="lose-title">GAME OVER</h2>
+                        
+                        <div class="stats-summary">
+                            <p>Puntaje Final: <strong id="final-score">0</strong></p>
+                        </div>
+
+                        <p id="custom-message" class="custom-text">
+                            ¡La serpiente chocó! Vuelve a intentarlo para batir tu récord.
+                        </p>
+
+                        <button id="restart-btn" class="btn-primary">Jugar de Nuevo</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de Estadísticas -->
+            <aside class="side-panel">
+                <div class="stat-box">
+                    <span class="stat-label">PUNTAJE</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">RÉCORD</span>
+                    <span id="high-score" class="stat-value target">0</span>
+                </div>
+
+                <button id="start-btn" class="btn-start">Iniciar Juego</button>
+
+                <!-- Guía rápida de controles -->
+                <div class="controls-info">
+                    <p><strong>Controles:</strong></p>
+                    <p>⬆️ ⬇️ ⬅️ ➡️ Mover</p>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Controles táctiles móviles -->
+        <footer class="mobile-controls">
+            <button id="btn-up" class="ctrl-btn" aria-label="Arriba">⬆️</button>
+            <div class="horizontal-controls">
+                <button id="btn-left" class="ctrl-btn" aria-label="Izquierda">⬅️</button>
+                <button id="btn-right" class="ctrl-btn" aria-label="Derecha">➡️</button>
+            </div>
+            <button id="btn-down" class="ctrl-btn" aria-label="Abajo">⬇️</button>
+        </footer>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
