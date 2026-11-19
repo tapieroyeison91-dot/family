@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏡 Juego de Preguntas Familiares (Verdadero o Falso)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+
+  <main class="card" id="app-card">
+    <!-- Barra superior: progreso y puntaje -->
+    <header class="top-bar" id="top-bar" hidden>
+      <div class="progress-wrapper">
+        <div class="progress-label">
+          <span id="question-counter">Pregunta 1 de 10</span>
+          <span id="score-badge">⭐ Puntaje: 0</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Pantalla 1: Bienvenida -->
+    <section id="screen-start" class="screen active">
+      <div class="hero-icon">🏡</div>
+      <h1>Juego de Preguntas Familiares</h1>
+      <p class="subtitle">
+        Lee cada afirmación sobre nuestra familia y el hogar, y elige si es <strong>Verdadero</strong> o <strong>Falso</strong>.
+      </p>
+      <div class="info-pills">
+        <span>📝 10 Preguntas</span>
+        <span>✅ Verdadero o Falso</span>
+      </div>
+      <button id="btn-start" class="btn btn-primary">
+        ¡Comenzar a Jugar! 🚀
+      </button>
+    </section>
+
+    <!-- Pantalla 2: Juego -->
+    <section id="screen-quiz" class="screen" hidden>
+      <div class="question-emoji" id="question-emoji">🐶</div>
+      <h2 id="question-text">El nombre de la mascota es Lulú.</h2>
+
+      <!-- Botones Verdadero o Falso -->
+      <div class="tf-buttons" id="tf-buttons">
+        <button type="button" id="btn-true" class="btn-tf btn-true">
+          <span class="tf-icon">👍</span>
+          <span>Verdadero</span>
+        </button>
+        <button type="button" id="btn-false" class="btn-tf btn-false">
+          <span class="tf-icon">👎</span>
+          <span>Falso</span>
+        </button>
+      </div>
+
+      <!-- Mensaje de CORRECTO / INCORRECTO en cada pregunta -->
+      <div id="feedback-box" class="feedback-box" hidden>
+        <div class="feedback-icon" id="feedback-icon">✅</div>
+        <div class="feedback-content">
+          <strong id="feedback-title">¡CORRECTO! +1 punto ✨</strong>
+          <p id="feedback-detail"></p>
+        </div>
+      </div>
+
+      <button id="btn-next" class="btn btn-secondary" hidden>
+        Siguiente pregunta ➡️
+      </button>
+    </section>
+
+    <!-- Pantalla 3: Resultados -->
+    <section id="screen-result" class="screen" hidden>
+      <div class="result-trophy" id="result-trophy">🏆</div>
+      <h2>¡Juego Terminado!</h2>
+      <div class="final-score-box">
+        <span class="final-score-label">Tu puntaje final</span>
+        <span class="final-score-value" id="final-score-text">10 / 10</span>
+      </div>
+      <p class="result-message" id="result-message">
+        ¡Lo lograste! Reconociste toda la casa a la perfección.
+      </p>
+
+      <div class="summary-list" id="summary-list"></div>
+
+      <button id="btn-restart" class="btn btn-primary">
+        🔄 Jugar de nuevo
+      </button>
+    </section>
+  </main>
+
+  <script src="js/juego.js"></script>
+</body>
+</html>
